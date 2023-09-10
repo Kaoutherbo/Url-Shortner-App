@@ -17,30 +17,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const registerSuccess = document.getElementById('registerSuccess');
     const loginSuccess  = document.getElementById('loginSuccess');
 
-  // Function to toggle between login and register forms
-  function toggleLoginRegister() {
-    const isLoginFormVisible = loginMain.style.display === 'flex';
-    loginMain.style.display = isLoginFormVisible ? 'none' : 'flex';
-    registerMain.style.display = isLoginFormVisible ? 'flex' : 'none';
-    shortenerMain.style.display = 'none';
-    urlList.style.display = 'none';
-  }
 
-  // Function to show the URL shortener and list
-  function showShortenerAndList() {
-    shortenerMain.style.display = 'flex';
-    urlList.style.display = 'flex';
-    loginMain.style.display = 'none';
-    registerMain.style.display = 'none';
-  }
+  // Function to display the registration form
+function displayRegisterForm() {
+  loginMain.style.display = 'none';
+  registerMain.style.display = 'flex';
+  shortenerMain.style.display = 'none';
+  urlList.style.display = 'none';
+}
 
-  // Event listeners for login and register links
-  loginUrl.forEach((element) => {
-    element.addEventListener('click', toggleLoginRegister);
+// Function to display the login form
+function displayLoginForm() {
+  loginMain.style.display = 'flex';
+  registerMain.style.display = 'none';
+  shortenerMain.style.display = 'none';
+  urlList.style.display = 'none';
+}
+
+// Function to show the shortener form and URL list
+function showShortenerAndList() {
+  shortenerMain.style.display = 'flex';
+  urlList.style.display = 'flex';
+  loginMain.style.display = 'none';
+  registerMain.style.display = 'none';
+}
+
+
+  // Event listener for the "Sign Up" link
+registerUrl.forEach((element) => {
+  element.addEventListener('click', () => {
+    displayRegisterForm(); // Call the function to display the registration form
   });
-  registerUrl.forEach((element) => {
-    element.addEventListener('click', toggleLoginRegister);
+});
+
+// Event listener for the "Log In" link
+loginUrl.forEach((element) => {
+  element.addEventListener('click', () => {
+    displayLoginForm(); // Call the function to display the login form
   });
+});
 
   // Event listener for the failed forms
   btn.forEach((element) => {
