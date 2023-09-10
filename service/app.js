@@ -43,9 +43,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-app.use(
-  session({ secret: 'your-secret-key', resave: true, saveUninitialized: true })
-);
+
 
 
 // User registration
@@ -61,8 +59,6 @@ app.post('/register', async (req, res) => {
     const newUser = new User({ username, email });
     await User.register(newUser, password);
     res.status(200).json({ message: 'Registration successful' });
-    // Set isAuthenticated to true after successful registration
-    req.session.isAuthenticated = true;
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
@@ -71,20 +67,13 @@ app.post('/register', async (req, res) => {
 
 // User login
 app.post('/login', passport.authenticate('local'), (req, res) => {
-  // Set isAuthenticated to true after successful login
-  req.session.isAuthenticated = true;
   res.status(200).json({ message: 'Login successful' });
 });
 
-function checkAuthentication(req, res, next) {
-  if (req.session.isAuthenticated) {
-    // User is authenticated, proceed to the next middleware or route
-    next();
-  }
-}
+
 
 // URL shortening
-app.post('/shorten', checkAuthentication, async (req, res) => {
+app.post('/shorten', async (req, res) => {
   const { originalUrl } = req.body;
   const shortUrl = generateShortUrl();
   const user = req.user; // Assuming user is authenticated
@@ -101,7 +90,7 @@ app.post('/shorten', checkAuthentication, async (req, res) => {
 });
 
 // Fetch user's shortened URLs
-app.get('/urls', checkAuthentication, (req, res) => {
+app.get('/urls', (req, res) => {
   const user = req.user; // Assuming user is authenticated
   Url.find({ user }, (err, urls) => {
     if (err) {
