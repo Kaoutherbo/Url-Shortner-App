@@ -95,7 +95,6 @@ const handleShortenFormSubmit = async (event) => {
         if (response.ok) {
             const data = await response.json();
             const shortUrl = data.shortUrl;
-            console.log('ok');
             // Create a new <li> element
             const li = document.createElement('li');
 
