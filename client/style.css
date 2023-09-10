@@ -334,13 +334,101 @@ body {
   & > .loginForm , & > #shortener-form , & > #url-list{
     display: none;
   }
-   
+  
+  & > #registerFailed ,& #loginFailed,& #loginSuccess, & #registerSuccess{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0; 
+  background-color: rgba(118, 118, 118, 0.3);
+  z-index: 100;
+  place-items: center;
 
+  & > .container{
+   position: absolute;
+    width: 500px;
+    height: 420px;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 1rem;
+
+    & > img{
+      margin: 1.3rem auto;
+    }
+    & > h1{
+      font-size: 3rem;
+      color: red;
+      & > b{
+        color: black;
+      }
+    }
+    
+    & > p{
+      color: black;
+      font-size: 23px;
+      margin-bottom: 1.4rem;
+      text-align: center;
+    }
+    & > .btn{
+      border: none;
+      outline: none;
+      padding: 16px 50px;
+      width: 50%;
+      background:red;
+      color: white;
+      font-size: 18px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    }
+  }
+  & #registerSuccess,& #loginSuccess{
+    & > .container{  
+      & > img{
+        width: 200px;
+        margin: 0;
+      }
+      & > h1{
+        margin-top: -2rem;
+        color: rgb(1, 150, 1);
+      }
+    
+      & > .btn{
+        background:rgb(1, 150, 1);
+      }
+  
+    }    
+}
+  & > #registerFailed,& > #loginFailed,& #registerSuccess,& #loginSuccess{
+    display: none;
+  }
+ 
 }
  
 
 @media (max-width:600px) {
   body{
+
+    &  #registerFailed,&  #loginFailed ,& #loginSuccess,& #registerSuccess{
+    
+      &  .container{
+        width: 90%;
+      
+        & > .btn{
+          width: 90%;
+        }
+      }
+  
+    }
     
     & > nav{
       padding: 1rem;
@@ -378,6 +466,21 @@ body {
       width: 90%;
     }
 
+    &  #url-list{
+      padding: .7rem;
+      & > h2{
+        font-size: 1.2rem;
+      }
+      & > ul {
+        & > li{
+          & > a{
+            font-size: 1.2rem;
+          }
+        }
+      }
+      
+    }
+  
 
     & > #shortener-form{
       & > p{
@@ -387,6 +490,7 @@ body {
         font-size: 1.6rem;
       }
       & > .url{
+        padding: 1rem;
         & > #url-form{
           & button{
             padding: 16px 30px;
@@ -397,9 +501,5 @@ body {
     }
   }
 
-  &  #url-list{
-    & > h2{
-      font-size: 1.3rem;
-    }
-  }
+
 }

@@ -5,6 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const shortenForm = document.getElementById('shortener-form');
     const urlsList = document.getElementById('url-list');
     const urls = document.getElementById('urls');
+    const registerFailed = document.getElementById('registerFailed');
+    const loginFailed = document.getElementById('loginFailed');
+    const registerSuccess = document.getElementById('registerSuccess');
+    const loginSuccess  = document.getElementById('loginSuccess');
     const url = 'http://localhost:3000'
     // Function to handle user registration
     const handleRegisterFormSubmit = async (event) => {
@@ -25,12 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert('Registration successful');
+                registerSuccess.style.display = 'flex';
                 registerForm.style.display = 'none';
                 shortenForm.style.display ='flex';
                 urlsList.style.display = 'flex';
                 
             } else {
+                registerFailed.style.display = 'flex';
                 console.error('Registration failed');
             }
         } catch (error) {
@@ -56,12 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert('Login successful');
+                loginSuccess.style.display = 'flex';
                 loginForm.style.display = 'none';
                 shortenForm.style.display ='flex';
                 urlsList.style.display = 'flex';
 
             } else {
+                loginFailed.style.display = 'flex';
                 console.error('Login failed');
             }
         } catch (error) {
@@ -133,9 +139,12 @@ const handleShortenFormSubmit = async (event) => {
 };
 
 
+
+
     // Event listeners for form submissions
     registerForm.addEventListener('submit', handleRegisterFormSubmit);
     loginForm.addEventListener('submit', handleLoginFormSubmit);
     shortenForm.addEventListener('submit', handleShortenFormSubmit);
+    
 
 });

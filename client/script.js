@@ -11,6 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.menu');
   const closeBtn = document.querySelector('.close');
   const navMenu = document.querySelector('.list');
+  const btn = document.querySelectorAll('.btn');
+  const loginFailed = document.querySelector('#loginFailed');
+  const registerFailed = document.querySelector('#registerFailed');
+  const registerSuccess = document.getElementById('registerSuccess');
+    const loginSuccess  = document.getElementById('loginSuccess');
 
   // Function to toggle between login and register forms
   function toggleLoginRegister() {
@@ -37,6 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', toggleLoginRegister);
   });
 
+  // Event listener for the failed forms
+  btn.forEach((element) => {
+    element.addEventListener('click',submitFailed);
+  });
   // Event listener for the home link
   homeUrl.addEventListener('click', showShortenerAndList);
 
@@ -53,7 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Function to toggle between login and register forms
+  function submitFailed() {
+   loginFailed.style.display = 'none';
+   registerFailed.style.display = 'none';
+   loginSuccess.style.display = 'none';
+   registerSuccess.style.display = 'none';
+  }
+
+
   // Event listeners for the menu button and close button
   menuBtn.addEventListener('click', toggleMenu);
   closeBtn.addEventListener('click', toggleMenu);
+
 });

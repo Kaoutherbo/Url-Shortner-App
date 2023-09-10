@@ -13,9 +13,11 @@
       "default",
       {
         "ignore": [
-          "user-select"
+          "user-select",
+          "width: fit-content"
         ]
       }
-    ]
+    ],
+    "button-type": "off"
   }
 }
