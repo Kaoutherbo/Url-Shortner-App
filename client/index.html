@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>URL Shortener App</title>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="./images/logo-removebg-preview.png" alt="logo" width="35px">
+      <p>Short <b> URL</b></p> 
+    </div>
+   
+    <ul class="list">
+      <li><a href="#" class="home">Home</a></li>
+      <li><a href="#" class="registerUrl">Sign up</a></li>
+      <li><a href="#" class="loginUrl">Log in</a></li>
+    </ul>
+
+    <div class="menu"><ion-icon name="grid-outline"></ion-icon></div>
+    <div class="close"><ion-icon name="close-outline"></ion-icon></div>
+  </nav>
+  
+  <main class="box registerForm">
+    
+    <form id="form-register">
+      <h2>Register</h2>
+      <div class="input-box">
+        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+        <input type="text"  id="register-username" required>
+        <label for="user">User Name</label>
+      </div>
+      <div class="input-box">
+        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+        <input type="email"  id="register-email" required>
+        <label for="email">Email</label>
+      </div>
+
+      <div class="input-box">
+        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon>
+        </span>
+        <input type="password"  id="register-password" required>
+        <label for="password">Password</label>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox" name="" id="">Remember Me</label>
+        <a href="#">Forgot password</a>
+      </div>
+      <button type="submit">Sign Up</button>
+      <div class="register-link">
+        <p>Already have an account? <a href="#" class="loginUrl">Sign in</a></p>  
+        </div>
+    </form>
+  </main>
+
+
+  <main class="box loginForm">
+    
+    <form id="form">
+      <h2>Log In</h2>
+      <div class="input-box">
+        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+        <input type="text"  id="login-username" required>
+        <label for="user">User Name</label>
+      </div> 
+      <div class="input-box">
+        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon>
+        </span>
+        <input type="password"  id="login-password" required>
+        <label for="password">Password</label>
+      </div>
+
+      <div class="remember-forgot">
+        <label><input type="checkbox">Remember Me</label>
+        <a href="#">Forgot password</a>
+      </div>
+      <button type="submit">Sign In</button>
+      <div class="register-link">
+      <p>Don't have an account ? <a href="#" class="registerUrl">Sing up</a></p>  
+      </div>
+    </form>
+  </main>
+
+  
+
+  <main id="shortener-form">
+    <h1>Turn Boring Long URLs
+      Into Mighty Short Links</h1>
+      <p>Streamline your online presence with our powerful URL
+         shortener and make the most of your marketing efforts.</p>
+
+        <div class="url"> 
+          <form id="url-form">
+            <input type="url" id="originalUrl" placeholder="Enter URL" required>
+            <button type="submit">Shorten</button>
+          </form>
+        </div>
+   
+  </main>
+
+  <div id="url-list">
+    <h2>Your Shortened URLs</h2>
+    <ul id="urls">
+      <!-- URL list items go here -->
+    </ul>
+  </div>
+
+  <script src="./script.js"></script>  
+  <script src="./script2.js"></script>
+
+<!--For icons-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

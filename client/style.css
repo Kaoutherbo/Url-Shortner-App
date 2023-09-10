@@ -1,0 +1,405 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@1,800&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root{
+--Font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+--Font-size:18px;
+--purple:#8800ff;
+--text-color: rgb(150, 141, 150);
+}
+
+body {
+    background:linear-gradient(40deg, rgba(170,182,251,0.5) 10%, rgba(255,255,255,0.8) 25%, rgba(251,123,142,0.2) 85%, rgba(170,182,251,0.1) 100%);;
+    font-family: var(--Font-family);
+   font-size: var(--Font-size);
+    min-height: 100vh;
+    width: 100%;
+    
+    & > nav{
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 2.3rem;
+      
+      & > div{
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        & > p{ 
+           cursor: pointer;
+          font-family: 'Bitter', serif;
+            & > b{
+              color: #8800ff;
+            }
+            
+        }
+       
+      }
+
+      & > ul{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        list-style: none;
+
+
+        &  > li > a{
+          position: relative;
+          text-decoration: none;
+          color: black;
+             &::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2.5px;
+            left: 0;
+            bottom: -6px;
+            background-color:var(--purple);
+            border-radius: 5px;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .3s;
+        }
+    
+           &:hover::after{
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+          &:hover{
+            color:var(--purple);
+            }
+        }
+    
+      }
+
+      & > .close,& > .menu{
+        font-size: 2rem;
+        cursor: pointer;
+        display: none;
+      }
+    }
+
+
+    & > .box {
+      width: 500px;
+      height: max-content;
+      position: relative;
+      background-color: #f1dbdb;
+      padding: 2rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin:50px auto;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+     
+    
+      &  h2{
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      &  .input-box{
+        width: 310px;
+        margin: 30px 0;
+        border-bottom: 2px solid #fff;
+        position: relative;
+       
+        & > label{
+          position: absolute;
+          top: 20px;
+          left: 5px;
+          transform: translateY(-50%);
+          font-size: 1rem;
+          pointer-events: none;
+          color: white;
+          transition: .5s;
+        }
+
+       & > input{
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        color: white;
+        padding: 0 35px 0 5px;
+       }   
+
+       &  input:focus~label, & input:valid~label{
+        top: -1px;
+       }
+
+       & > .icon{
+        position: absolute;
+        right: 8px;
+        color: white;
+        font-size: 1.2rem;
+        line-height: 57px;
+        cursor: pointer;
+       }
+
+      }
+
+
+      &  .remember-forgot{
+        margin: -10px 0 25px;
+        font-size: .9em;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+
+       & input{
+          margin-right: 5px;
+        }
+        & a{
+          text-decoration: none;
+          color: var(--text-color);
+          font-weight: 600;
+          &:hover{
+            color: var(--purple);
+            text-decoration: underline;
+          }
+        }
+
+      }
+
+      & button{
+        width: 100%;
+        height: 40px;
+        background-color:var(--purple);
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 1rem;
+        color: white;
+        border: none;
+        outline: none;
+       transition: .3s;
+
+          &:hover{
+          transform: scale(1.1);
+          }
+      }
+
+      &  .register-link{
+        font-size: .9em;
+        color: white;
+        text-align: center;
+        margin: 25px 0 10px;
+
+        & p a{
+          text-decoration: none;
+          color: var(--text-color);
+          font-weight: 600;
+          &:hover{
+            color: var(--purple);
+            text-decoration: underline;
+          }
+        }
+      }
+      
+    }
+
+
+    & > #shortener-form{
+      margin: 60px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      max-width: 550px;
+      gap: 1rem;
+
+      & > p{
+        color: var(--text-color);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      & > .url{
+
+        width: 100%;
+        max-width: 540px;
+        background-color: #f7ebeb;
+        padding: 40px 30px 20px;
+        border-radius: 10px;
+        margin-top: 3rem;
+
+        & > #url-form{
+          width: 100%;
+          height: 50px;
+          align-items: center;
+          display: flex;
+          background:white;
+          border-radius: 30px;
+          margin-bottom: 25px;
+         
+
+          & > input{
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 10px;
+            font-weight: 14px;
+            width: 100%;
+            height: 50px;
+            border-radius: 40px 0 0 40px ;
+            padding-left: 25px;
+          }
+
+
+        & > button{
+          border: none;
+          outline: none;
+          padding: 16px 50px;
+          background:var(--purple);
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          border-radius: 40px;
+        }
+
+        }
+
+      }
+    }
+   
+    & > #url-list{
+      width: 100%;
+      max-width: 540px;
+      background-color: #f7ebeb;
+      padding: 40px 30px 60px;
+      border-radius: 10px;
+      margin:3rem auto;
+      
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      & > ul {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        list-style: none;
+        
+       
+      & >  li{
+          font-size: 17px;
+          user-select: none;
+          cursor: pointer;
+          display: flex;
+          gap: 2rem;
+          justify-content: space-between;
+          background-color: #f7cfcf;
+          border-radius: 10px;
+          padding: 1rem;
+         
+        & a{
+          text-decoration: none;
+          font-size: 1.3rem;
+          color:rgb(76, 36, 124);
+        }
+
+        & .copy{
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 3px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          
+            &:hover{
+              background-color:#e1d9d9;
+            }
+            
+        }
+        }
+
+    }
+  }
+
+  & > .loginForm , & > #shortener-form , & > #url-list{
+    display: none;
+  }
+   
+
+}
+ 
+
+@media (max-width:600px) {
+  body{
+    
+    & > nav{
+      padding: 1rem;
+
+      & > .menu{
+        display: block;
+      }
+      & > ul{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 200px;
+        background-color:var(--text-color);
+        position: absolute;
+        top: 8%;
+        right: -200px;
+        z-index: 1;
+        transition: .3s;
+        gap: 30px;
+        display: none;
+        
+        & > li{
+          color: white;
+        }
+      }
+      & > .active{   
+        right:20px;
+       display: flex;
+      }
+     
+    }
+
+    & > .box{
+      width: 90%;
+    }
+
+
+    & > #shortener-form{
+      & > p{
+        padding: 0 1rem;
+      }
+      & > h1{
+        font-size: 1.6rem;
+      }
+      & > .url{
+        & > #url-form{
+          & button{
+            padding: 16px 30px;
+          }
+        }
+
+      }
+    }
+  }
+
+  &  #url-list{
+    & > h2{
+      font-size: 1.3rem;
+    }
+  }
+}
