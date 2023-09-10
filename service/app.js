@@ -71,8 +71,8 @@ app.post('/register', async (req, res) => {
 
 // User login
 app.post('/login', passport.authenticate('local'), (req, res) => {
-   // Set isAuthenticated to true after successful login
-   req.session.isAuthenticated = true;
+  // Set isAuthenticated to true after successful login
+  req.session.isAuthenticated = true;
   res.status(200).json({ message: 'Login successful' });
 });
 
@@ -80,9 +80,6 @@ function checkAuthentication(req, res, next) {
   if (req.session.isAuthenticated) {
     // User is authenticated, proceed to the next middleware or route
     next();
-  } else {
-    // User is not authenticated, you can redirect them to the login or registration page
-    res.redirect('/login'); // Redirect to the login page, or you can customize this behavior
   }
 }
 
