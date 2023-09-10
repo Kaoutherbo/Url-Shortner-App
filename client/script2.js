@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginFailed = document.getElementById('loginFailed');
     const registerSuccess = document.getElementById('registerSuccess');
     const loginSuccess  = document.getElementById('loginSuccess');
-    const url = 'http://localhost:3000'
+    const url = 'https://url-shortner-app-lkdd.onrender.com'
     // Function to handle user registration
     const handleRegisterFormSubmit = async (event) => {
         event.preventDefault();
