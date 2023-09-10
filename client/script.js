@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginFailed = document.querySelector('#loginFailed');
   const registerFailed = document.querySelector('#registerFailed');
   const registerSuccess = document.getElementById('registerSuccess');
-    const loginSuccess  = document.getElementById('loginSuccess');
+  const loginSuccess  = document.getElementById('loginSuccess');
+  const homeAlert = document.getElementById('homeAlert');
 
 
   // Function to display the registration form
@@ -24,6 +25,7 @@ function displayRegisterForm() {
   registerMain.style.display = 'flex';
   shortenerMain.style.display = 'none';
   urlList.style.display = 'none';
+  isAuthenticated = true;
 }
 
 // Function to display the login form
@@ -32,15 +34,22 @@ function displayLoginForm() {
   registerMain.style.display = 'none';
   shortenerMain.style.display = 'none';
   urlList.style.display = 'none';
+  isAuthenticated = true;
 }
-
+let isAuthenticated = false;
 // Function to show the shortener form and URL list
 function showShortenerAndList() {
-  shortenerMain.style.display = 'flex';
-  urlList.style.display = 'flex';
-  loginMain.style.display = 'none';
-  registerMain.style.display = 'none';
+
+  if (isAuthenticated) {
+    shortenerMain.style.display = 'flex';
+    urlList.style.display = 'flex';
+    loginMain.style.display = 'none';
+    registerMain.style.display = 'none';
+  } else {
+    homeAlert.style.display ='flex';
+  }
 }
+
 
 
   // Event listener for the "Sign Up" link
@@ -83,6 +92,7 @@ loginUrl.forEach((element) => {
    registerFailed.style.display = 'none';
    loginSuccess.style.display = 'none';
    registerSuccess.style.display = 'none';
+   homeAlert.style.display = 'none';
   }
 
 

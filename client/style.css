@@ -335,7 +335,7 @@ body {
     display: none;
   }
   
-  & > #registerFailed ,& #loginFailed,& #loginSuccess, & #registerSuccess{
+  & > #registerFailed ,& #loginFailed,& #loginSuccess, & #registerSuccess,& #homeAlert{
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -408,7 +408,7 @@ body {
   
     }    
 }
-  & > #registerFailed,& > #loginFailed,& #registerSuccess,& #loginSuccess{
+  & > #registerFailed,& > #loginFailed,& #registerSuccess,& #loginSuccess, & #homeAlert{
     display: none;
   }
  
@@ -418,7 +418,7 @@ body {
 @media (max-width:600px) {
   body{
 
-    &  #registerFailed,&  #loginFailed ,& #loginSuccess,& #registerSuccess{
+    &  #registerFailed,&  #loginFailed ,& #loginSuccess,& #registerSuccess, & #homeAlert{
     
       &  .container{
         width: 90%;
